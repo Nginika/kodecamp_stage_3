@@ -4,6 +4,7 @@ import os
 from pathlib import Path
 from langchain_core.prompts import PromptTemplate
 from langchain_google_genai import ChatGoogleGenerativeAI
+from langchain_openai import ChatOpenAI
 
 
 load_dotenv()
@@ -17,7 +18,7 @@ if not OPENROUTER_API_KEY:
 if not MODEL_NAME:
     raise ValueError("Missing MODEL_NAME")
 
-llm = ChatGoogleGenerativeAI(model=MODEL_NAME, api_key=OPENROUTER_API_KEY)
+llm = ChatOpenAI(model=MODEL_NAME, api_key=OPENROUTER_API_KEY, base_url="https://openrouter.ai/api/v1",) 
 
 
 
